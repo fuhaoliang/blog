@@ -17,12 +17,15 @@ export default {
       banners: ['/image/1.jpg', '/image/2.jpg', '/image/3.jpg'],
       swiperOption: {
         loop: true,
-        slidesPerView: 'auto',
         centeredSlides: true,
+        slidesPerView: 3,
         spaceBetween: 30,
-        pagination: {
-          el: '.swiper-pagination',
-          dynamicBullets: true
+        tdFlow: {
+          rotate: 509,
+          stretch: 10,
+          depth: 1000,
+          modifier: 1,
+          shadows: true
         },
         on: {
           slideChange() {
