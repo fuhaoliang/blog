@@ -1,96 +1,63 @@
-const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
   /*
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      {
-        type: 'text/javascript',
-        charset: 'utf-8',
-        src: '/js/moment.js'
-      }
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
   /*
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
-
   /*
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css',
-    'swiper/dist/css/swiper.min.css',
-    '~/assets/css/3dflow.css'
+    'element-ui/lib/theme-chalk/index.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui',
-    { src: '@/plugins/swiper.js', ssr: false }
-    // { src: '@/assets/js/3dflow.js', ssr: false }
+    '@/plugins/element-ui'
   ],
-
+  /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+  ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
   ],
   /*
   ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
   },
-
   /*
   ** Build configuration
   */
   build: {
+    transpile: [/^element-ui/],
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    },
-    postcss: [
-      require('postcss-nested')(),
-
-      require('postcss-responsive-type')(),
-
-      require('postcss-hexrgba')(),
-      require('autoprefixer')({
-        browsers: [
-          'last 10 Chrome versions',
-          'last 5 Firefox versions',
-          'Safari >= 6',
-          'ie> 8'
-        ]
-      })
-    ]
+    extend (config, ctx) {
+    }
   }
 }

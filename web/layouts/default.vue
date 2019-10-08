@@ -1,19 +1,8 @@
 <template>
   <div>
-    <g-header/>
-    <nuxt/>
+    <nuxt />
   </div>
 </template>
-
-<script>
-import gHeader from '../components/common/Gheader'
-export default {
-  name: 'Defaultvue',
-  components: {
-    gHeader
-  }
-}
-</script>
 
 <style>
 html {
