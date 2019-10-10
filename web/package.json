@@ -1,7 +1,7 @@
 {
   "name": "web",
   "version": "1.0.0",
-  "description": "My marvelous Nuxt.js project",
+  "description": "My mind-blowing Nuxt.js project",
   "author": "付豪亮",
   "private": true,
   "scripts": {
@@ -15,12 +15,11 @@
     "cross-env": "^5.2.0",
     "koa": "^2.6.2",
     "element-ui": "^2.4.11",
-    "@nuxtjs/axios": "^5.3.6"
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^3.0.0-0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "prettier": "^1.16.4"
+    "babel-plugin-component": "^1.1.1",
+    "nodemon": "^1.18.9"
   }
 }
