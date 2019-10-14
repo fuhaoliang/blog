@@ -23,7 +23,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  // css: ['ant-design-vue/dist/antd.css'],
+  css: ['ant-design-vue/dist/antd.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -41,8 +41,12 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources'
   ],
+  styleResources: {
+    less: './assets/css/var.less'
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -59,42 +63,23 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    // 'html.minify': {
-    //   collapseBooleanAttributes: false,
-    //   collapseWhitespace: false,
-    //   decodeEntities: false,
-    //   minifyCSS: false,
-    //   minifyJS: false,
-    //   processConditionalComments: false,
-    //   removeAttributeQuotes: false,
-    //   removeComments: false,
-    //   removeEmptyAttributes: false,
-    //   removeOptionalTags: false,
-    //   removeRedundantAttributes: false,
-    //   removeScriptTypeAttributes: false,
-    //   removeStyleLinkTypeAttributes: false,
-    //   removeTagWhitespace: false,
-    //   sortClassName: false,
-    //   trimCustomFragments: false,
-    //   useShortDoctype: false
-    // },
-    extractCSS: true,
+    // extractCSS: true,
     loaders: {
-      // less: {
-      //   javascriptEnabled: true
-      // }
+      less: {
+        javascriptEnabled: true
+      }
     },
     babel: {
-      // plugins: [
-      //   [
-      //     'import',
-      //     {
-      //       libraryName: 'ant-design-vue',
-      //       libraryDirectory: 'es',
-      //       style: true
-      //     }
-      //   ]
-      // ]
+      plugins: [
+        // [
+        //   'import',
+        //   {
+        //     libraryName: 'ant-design-vue',
+        //     libraryDirectory: 'es',
+        //     style: true
+        //   }
+        // ]
+      ]
     },
     extend(config, ctx) {}
   }

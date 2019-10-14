@@ -1,8 +1,19 @@
 <template>
-  <div>
+  <div class="layout">
+    <GHeader />
     <nuxt />
   </div>
 </template>
+
+<script>
+import GHeader from '@/components/Gheader'
+export default {
+  name: 'Gheader',
+  components: {
+    GHeader
+  }
+}
+</script>
 
 <style>
 html {
