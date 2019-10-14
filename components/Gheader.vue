@@ -19,7 +19,7 @@
     <div class="gheader-m">
       <div class="gheader-m-l">
         <router-link to="/">首页</router-link>
-        <router-link to="/">札记</router-link>
+        <router-link to="/">博客</router-link>
         <router-link to="/">一席话</router-link>
         <router-link to="/">资源</router-link>
         <router-link to="/">关于我</router-link>

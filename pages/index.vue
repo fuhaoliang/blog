@@ -11,10 +11,10 @@
         <div class="home-Resource"></div>
       </div>
       <div class="home-r">
-        <!-- 特别推荐 -->
-        <div class="home-recommend"></div>
         <!-- 热门标签 -->
         <div class="home-tags"></div>
+        <!-- 特别推荐 -->
+        <div class="home-recommend"></div>
         <!-- 一席话 -->
         <div class="home-word"></div>
         <!-- 最近留言 -->
