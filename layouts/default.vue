@@ -1,7 +1,7 @@
 <template>
-  <div class="layout">
+  <div>
     <GHeader />
-    <nuxt />
+    <nuxt class="nuxt-body" />
   </div>
 </template>
 
@@ -62,5 +62,9 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.nuxt-body {
+  padding: 130px 0 40px;
+  margin-bottom: 10px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="gheader">
+  <div class="layout gheader">
     <div class="gheader-t">
       <div class="gheader-t-l">
         <router-link to="/">
@@ -37,6 +37,13 @@ export default {}
 </script>
 
 <style lang="less">
+.gheader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99;
+}
 .gheader-t {
   display: flex;
   align-items: center;
