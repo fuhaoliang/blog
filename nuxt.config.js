@@ -82,5 +82,9 @@ module.exports = {
       ]
     },
     extend(config, ctx) {}
+  },
+  server: {
+    port: 6666, // default: 6666
+    host: '0.0.0.0' // default: localhost
   }
 }
