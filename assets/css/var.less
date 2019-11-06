@@ -1,30 +1,23 @@
-ul, ol, li { list-style: none; }
-body, header, footer, aside, article, section, hgroup, nav, menu, canvas, output, dialog, datalist, details, figure, figcaption, audio, video, progress, mark, time, object, embed, div, p, address, blockquote, pre, dl, dt, dd, ol, ul, li, map, table, caption, thead, tbody, tfoot, tr, th, td, form, fieldset, legend, img, input, button, textarea, iframe, h1, h2, h3, h4, h5, h6 { border: medium none; margin: 0; padding: 0; }
-body { font:14px/1.5 "PingFang SC","Lantinghei SC","Microsoft YaHei","HanHei SC","Helvetica Neue","Open Sans",Arial,"Hiragino Sans GB","å¾®è½¯é›…é»‘",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif; -webkit-font-smoothing: antialiased;}
-input, select, textarea { -webkit-transition: box-shadow 0.1s ease-in-out; -moz-transition: box-shadow 0.1s ease-in-out; outline: none; }
-html, body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, label, textarea, p, blockquote, th, td { margin: 0; padding: 0; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none; -o-text-size-adjust: none; text-size-adjust: none; -webkit-tap-highlight-color: rgba(0,0,0,0) !important; }
-h1, h2, h3, h4, h5, h6 { /*font-weight:normal; */}
-header, footer, aside, article, section, hgroup, nav, menu, canvas, details, figure, figcaption, audio, video { display: block; }
-table { border-collapse: collapse; border-spacing: 0; table-layout: fixed; font-size: 12px; }
-/*address, i, em, dt { font-style: normal; font-weight: normal; }*/
-button::-moz-focus-inner { border:0; padding: 0;}
-a{color:#999; text-decoration:none;}
-a:hover{color:#409eff;}
 
-*{
-  box-sizing: border-box;
-}
+
 
 @color1:red;
 
 
+@c1: #333;
 
-.layout{
-  max-width: 1100px;
-  margin: 0 auto;
+//超出...
+.ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
-.pdlr15{
-  padding: 15px 0;
+.ellipsis(@line) when(@line>1) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
 }
 
 
