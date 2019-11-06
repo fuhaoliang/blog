@@ -5,6 +5,9 @@
       "cwd": "./",
       "script": "./server/index.js",
       "exec_interpreter": "node",
+      "env": {
+        "NODE_ENV": "production"
+      },
       "min_uptime": "60s",
       "max_restarts": 30,
       "exec_mode" : "fork",
@@ -13,4 +16,5 @@
       "pid_file": "./logs/cms-server.pid",
       "watch": false
     }
-]}
+  ]
+}

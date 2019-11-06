@@ -1,6 +1,7 @@
 <template>
   <div class="layout home">
     <!-- banner楼层 -->
+    <h1>22222222</h1>
     <div class="mb40 banner">
       <div class="leftWrap banner-l">
         <a-carousel autoplay>

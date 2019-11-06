@@ -56,7 +56,7 @@ module.exports = {
    ** Build configuration
    */
   generate: {
-    minify: false
+    // minify: false
   },
   dev: true,
   build: {
