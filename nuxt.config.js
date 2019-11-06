@@ -86,5 +86,8 @@ module.exports = {
   server: {
     port: 8866, // default: 6666
     host: '0.0.0.0' // default: localhost
+  },
+  router: {
+    base: '/blog/'
   }
 }
