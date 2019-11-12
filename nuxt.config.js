@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 module.exports = {
   mode: 'universal',
   /*
@@ -31,7 +32,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/antd.js', ssr: true }],
+  plugins: [
+    { src: '~/plugins/antd.js', ssr: true },
+    { src: '~/plugins/axios.js', ssr: true }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -75,14 +79,15 @@ module.exports = {
     },
     babel: {
       plugins: [
-        // [
-        //   'import',
-        //   {
-        //     libraryName: 'ant-design-vue',
-        //     libraryDirectory: 'es',
-        //     style: true
-        //   }
-        // ]
+        "@babel/plugin-transform-modules-commonjs",
+        [
+          'babel-plugin-import',
+          {
+            libraryName: 'ant-design-vue',
+            libraryDirectory: 'lib',
+            style: false
+          }
+        ]
       ]
     },
     extend(config, ctx) {}

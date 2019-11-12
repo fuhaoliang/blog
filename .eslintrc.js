@@ -1,24 +1,20 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true
+	root: true,
+	parserOptions: {
+		parser: 'babel-eslint',
+		sourceType: 'module'
+	},
+	env: {
+		browser: true,
+		node: true,
+		es6: true
   },
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
-  extends: [
-    '@nuxtjs',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
-  ],
-  plugins: [
-    'prettier'
-  ],
-  // add your custom rules here
-  rules: {
-    'nuxt/no-cjs-in-config': 'off'
-  }
+  "plugins": ["prettier"],
+	extends: ['plugin:vue/recommended', 'eslint:recommended'],
+
+	// add your custom rules here
+	//it is base on https://github.com/vuejs/eslint-config-vue
+	rules: {
+		
+	}
 }

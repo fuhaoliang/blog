@@ -1,6 +1,8 @@
 <template>
   <div class="tag-body">
-    <div class="tag-box"><span class="i">#</span>{{ title }}</div>
+    <div class="tag-box">
+      <span class="i">#</span>{{ title }}
+    </div>
   </div>
 </template>
 

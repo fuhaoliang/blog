@@ -7,7 +7,7 @@
             class="logo"
             src="https://www.duoguyu.com/uploads/201904/23/190423113846842.png"
             alt=""
-          />
+          >
         </router-link>
       </div>
       <div class="gheader-t-r">
@@ -18,15 +18,30 @@
     </div>
     <div class="gheader-m">
       <div class="gheader-m-l">
-        <router-link to="/">首页</router-link>
-        <router-link to="/">博客</router-link>
-        <router-link to="/">一席话</router-link>
-        <router-link to="/">资源</router-link>
-        <router-link to="/">关于我</router-link>
-        <router-link to="/">社区</router-link>
+        <router-link to="/">
+          首页
+        </router-link>
+        <router-link to="/">
+          博客
+        </router-link>
+        <router-link to="/">
+          一席话
+        </router-link>
+        <router-link to="/">
+          资源
+        </router-link>
+        <router-link to="/">
+          关于我
+        </router-link>
+        <router-link to="/">
+          社区
+        </router-link>
       </div>
       <div class="gheader-m-r">
-        <a-input-search placeholder="input search text" style="width: 200px" />
+        <a-input-search
+          placeholder="input search text"
+          style="width: 200px"
+        />
       </div>
     </div>
   </div>

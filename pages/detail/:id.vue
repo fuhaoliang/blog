@@ -1,19 +1,28 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-11-12 18:12:13
+ * @LastEditTime: 2019-11-12 23:24:50
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /cms/Users/fuhaoliang/Desktop/公司/blog/pages/detail/:id.vue
+ -->
 <template>
   <div class="layout detail-body">
     <div class="leftWrap">
-      <detail-title></detail-title>
+      <detail-title />
       <div class="pr description">
         <p>
+          {{ counter }}
           云开发数据库查询失败errCode: -1 | errMsg: document.get:fail Error:
           cannot find document XXX错误原因： 云开发数据库的...
         </p>
-        <i class="flag"></i>
+        <i class="flag" />
       </div>
       <div class="article">
-        <div v-html="content"></div>
+        <div v-html="content" />
       </div>
     </div>
-    <div class="rightWrap"></div>
+    <div class="rightWrap" />
   </div>
 </template>
 
@@ -38,6 +47,23 @@ export default {
 <li style="box-sizing: border-box; text-size-adjust: none; white-space: normal; text-align: left; -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;"><span style="text-align: justify;"><strong style="box-sizing: border-box;"><strong style="box-sizing: border-box;"><strong style="box-sizing: border-box;">压缩图片，使用适当的图片格式；</strong></strong></strong></span></li>
 </ol>
 <p>&nbsp;</p>`
+    }
+  },
+  computed: {
+    counter() {
+      return this.$store.state.counter
+    }
+  },
+  asyncData({ app, error }) {
+    app.$http.articleApi.getArticles({}, {error : false})
+    error({ statusCode: 404, message: 'Post not found' })
+  },
+  mounted() {
+    this.$http.articleApi.getArticles()
+  },
+  methods: {
+    test() {
+      this.$http.articleApi.getArticles()
     }
   }
 }

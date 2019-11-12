@@ -24,9 +24,14 @@
       <div class="leftWrap home-l">
         <!-- 最新更新 -->
         <div class="latest">
-          <h2 class="type-title">最近更新</h2>
+          <h2 class="type-title">
+            最近更新
+          </h2>
           <div class="latest-item">
-            <Tag title="小程序" class="mb5" />
+            <Tag
+              title="小程序"
+              class="mb5"
+            />
             <div class="latest-content">
               <div class="latest-content-l">
                 <h2 class="mb5 title">
@@ -44,12 +49,15 @@
                 <img
                   src="https://www.duoguyu.com/uploads/201908/28/190828052102855.png"
                   alt=""
-                />
+                >
               </div>
             </div>
           </div>
           <div class="latest-item">
-            <Tag title="小程序" class="mb5" />
+            <Tag
+              title="小程序"
+              class="mb5"
+            />
             <div class="latest-content">
               <div class="latest-content-l">
                 <h2 class="mb5 title">
@@ -67,31 +75,45 @@
                 <img
                   src="https://www.duoguyu.com/uploads/201908/28/190828052102855.png"
                   alt=""
-                />
+                >
               </div>
             </div>
           </div>
         </div>
         <!-- 推荐资源 -->
-        <div class="Resource"></div>
+        <div class="Resource" />
       </div>
       <div class="rightWrap home-r">
         <!-- 热门标签 -->
         <div class="home-tags">
-          <h2 class="type-title">热门标签</h2>
+          <h2 class="type-title">
+            热门标签
+          </h2>
           <div class="home-tags-box">
-            <a class="home-tags-item" href="">代码片段</a>
-            <a class="home-tags-item" href="">代码片段</a>
-            <a class="home-tags-item" href="">代码片段</a>
-            <a class="home-tags-item" href="">代码片段</a>
+            <a
+              class="home-tags-item"
+              href=""
+            >代码片段</a>
+            <a
+              class="home-tags-item"
+              href=""
+            >代码片段</a>
+            <a
+              class="home-tags-item"
+              href=""
+            >代码片段</a>
+            <a
+              class="home-tags-item"
+              href=""
+            >代码片段</a>
           </div>
         </div>
         <!-- 特别推荐 -->
-        <div class="home-recommend"></div>
+        <div class="home-recommend" />
         <!-- 一席话 -->
-        <div class="home-word"></div>
+        <div class="home-word" />
         <!-- 最近留言 -->
-        <div class="home-message"></div>
+        <div class="home-message" />
       </div>
     </div>
   </div>
