@@ -1,7 +1,7 @@
 <template>
   <div class="detail-title">
     <div class="title">
-      <h1>小程序云开发数据库查询失败的解决方案<span> / 小程序</span></h1>
+      <h1>{{ title }}<span> / 小程序</span></h1>
     </div>
     <div class="info">
       <span>2月前</span>
@@ -15,9 +15,10 @@
 <script>
 export default {
   name: 'DetailTitle',
-  prop: {
-    txt: {
-      type: String
+  props: {
+    title: {
+      type: String,
+      default: '111'
     }
   }
 }

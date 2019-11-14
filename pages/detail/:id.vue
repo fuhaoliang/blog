@@ -9,17 +9,16 @@
 <template>
   <div class="layout detail-body">
     <div class="leftWrap">
-      <detail-title />
-      <div class="pr description">
+      <detail-title :title="articleObj.title " />
+      <div class="pr mb60 description">
         <p>
           {{ counter }}
-          云开发数据库查询失败errCode: -1 | errMsg: document.get:fail Error:
-          cannot find document XXX错误原因： 云开发数据库的...
+          {{ articleObj.title }}
         </p>
         <i class="flag" />
       </div>
       <div class="article">
-        <div v-html="content" />
+        <div v-html="articleObj.content" />
       </div>
     </div>
     <div class="rightWrap" />
@@ -28,6 +27,9 @@
 
 <script>
 import DetailTitle from '@/components/DeatilTitle'
+import Prism from 'prismjs'
+
+import xss from 'xss'
 export default {
   name: 'Detail',
   components: {
@@ -35,6 +37,10 @@ export default {
   },
   data() {
     return {
+      articleObj: {
+        content: '',
+        title: ''
+      },
       content: `<p style="box-sizing: border-box; margin: 0px; padding: 0px; text-size-adjust: none; white-space: normal; -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;">在传统的web项目开发过程中，为了优化项目体积、削弱臃肿的图片资源，尤其是碎片图标等对服务器的压力。</p>
 <p style="box-sizing: border-box; margin: 0px; padding: 0px; text-size-adjust: none; white-space: normal; -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;">为此，我们就会优先使用一些矢量字体图标文件，比如：阿里提供的免费开源图标库iconfont。它的好处就是可以像使用字体一样去渲染我们的图标，无比顺畅。</p>
 <p style="box-sizing: border-box; margin: 0px; padding: 0px; text-size-adjust: none; white-space: normal; -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;">&nbsp;</p>
@@ -54,14 +60,28 @@ export default {
       return this.$store.state.counter
     }
   },
-  asyncData({ app, error }) {
-    app.$http.articleApi.getArticles({}, {error : false})
-    error({ statusCode: 404, message: 'Post not found' })
+  // eslint-disable-next-line no-unused-vars
+  async asyncData({ app,params, query, error }) {
+    const { id } = params
+     let {status, data}  = await app.$http.articleApi.getAtricleInfo({ id }, {error : false})
+     const { code, message } = status
+     if (status.code === 0) {
+       console.info('data',data )
+     } else {
+       error({ statusCode: code, message })
+     }
+
+     return {
+       ...data
+     }
+    // error({ statusCode: 404, message: 'Post not found' })
   },
   mounted() {
-    this.$http.articleApi.getArticles()
+    Prism.highlightAll()
+    console.info('xss(articleObj.content)', this.xss, '--->', this.xss(this.articleObj.content) )
   },
   methods: {
+    xss,
     test() {
       this.$http.articleApi.getArticles()
     }
