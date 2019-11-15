@@ -27,7 +27,7 @@
           <h2 class="type-title">
             最近更新
           </h2>
-          <div class="latest-item">
+          <nuxt-link :to="`/detail/${item.id}`" class="latest-item" v-for="item in articlesList" :key="item.id">
             <Tag
               title="小程序"
               class="mb5"
@@ -35,10 +35,10 @@
             <div class="latest-content">
               <div class="latest-content-l">
                 <h2 class="mb5 title">
-                  如何在微信小程序中使用iconfont字体图标（阿里图标库）？如何在微信小程序中使用iconfont字体图标（阿里图标库）？如何在微信小程序中使用iconfont字体图标（阿里图标库）？如何在微信小程序中使用iconfont字体图标（阿里图标库）？
+                  {{ item.title }}
                 </h2>
                 <p class="mb10 detail">
-                  我们在小程序的项目开发过程中，也不可避免的需要使用到字体图标，毕竟小程序那2M代码包大小的限制，还是挺让人隐隐作痛的。相对于传统web项目中使用icon的。相对于传统web项目中使用i相对于传统web项目中使用i相对于传统web项目中使用i
+                  {{ item.summary}}
                 </p>
                 <p class="otherInfo">
                   <span class="mr5">2月前</span>
@@ -52,7 +52,7 @@
                 >
               </div>
             </div>
-          </div>
+          </nuxt-link>
           <div class="latest-item">
             <Tag
               title="小程序"
@@ -90,22 +90,13 @@
             热门标签
           </h2>
           <div class="home-tags-box">
+            <nuxt-link to="" class="home-tags-item" v-for="item in articlesTag" :key="item.id"> {{ item.tagName }} </nuxt-link>
             <a
               class="home-tags-item"
               href=""
-            >代码片段</a>
-            <a
-              class="home-tags-item"
-              href=""
-            >代码片段</a>
-            <a
-              class="home-tags-item"
-              href=""
-            >代码片段</a>
-            <a
-              class="home-tags-item"
-              href=""
-            >代码片段</a>
+            >
+              代码片段
+            </a>
           </div>
         </div>
         <!-- 特别推荐 -->
@@ -122,8 +113,33 @@
 <script>
 import Tag from '@/components/Tag'
 export default {
+  name: 'Home',
   components: {
     Tag
+  },
+   data () {
+    return {
+      articlesList: [],
+      articlesTag:[]
+    }
+  },
+  async asyncData({ app, error }) {
+     const [ getArticlesData, getTagsData ] = await Promise.all([
+       app.$http.articleApi.getArticles({}, {error : false}),
+       app.$http.articleApi.getTags({}, {error : false})
+     ])
+     try {
+       if (getArticlesData.status.code === 0 && getArticlesData.status.code === 0) {
+         return {
+            articlesList: getArticlesData.data.data,
+            articlesTag: getTagsData.data.tagArr
+          }
+       } else {
+         return error({ statusCode: 404, message: 'Post not found' })
+       }
+     } catch {
+       return error({ statusCode: 404, message: 'Post not found' })
+     }
   }
 }
 </script>
