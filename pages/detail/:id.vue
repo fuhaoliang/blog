@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-12 18:12:13
- * @LastEditTime: 2019-11-12 23:24:50
+ * @LastEditTime: 2019-11-14 22:55:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /cms/Users/fuhaoliang/Desktop/公司/blog/pages/detail/:id.vue
@@ -64,11 +64,11 @@ export default {
   async asyncData({ app,params, query, error }) {
     const { id } = params
      let {status, data}  = await app.$http.articleApi.getAtricleInfo({ id }, {error : false})
-     const { code, message } = status
+     const { message } = status
      if (status.code === 0) {
        console.info('data',data )
      } else {
-       error({ statusCode: code, message })
+       error({ statusCode: 404, message })
      }
 
      return {
