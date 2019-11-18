@@ -2,6 +2,19 @@
  * 辅助函数
  * @author wangyipeng
  */
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
+// import zh_cn from 'dayjs/locale/zh-cn'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.locale('zh-cn')
+dayjs.extend(customParseFormat)
+dayjs.extend(relativeTime)
+
+
+
+
 export default {
   isFunction(fn) {
     return Object.prototype.toString.call(fn) === '[object Function]'
@@ -211,6 +224,9 @@ export default {
     } else {
       return ''
     }
+  },
+  fromNow (old_time) {
+    return dayjs(old_time).fromNow()
   },
   setCookie(name, value, days) {
     // console.log('name:' + name + ' value:' + value)

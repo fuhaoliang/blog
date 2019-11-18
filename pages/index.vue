@@ -27,24 +27,29 @@
           <h2 class="type-title">
             最近更新
           </h2>
-          <nuxt-link :to="`/detail/${item.id}`" class="latest-item" v-for="item in articlesList" :key="item.id">
+          <nuxt-link
+            v-for="item in articlesList"
+            :key="item.id"
+            :to="`/detail/${item.id}`"
+            class="latest-item"
+          >
             <Tag
               title="小程序"
               class="mb5"
             />
             <div class="latest-content">
-              <div class="latest-content-l">
+              <span class="latest-content-l">
                 <h2 class="mb5 title">
                   {{ item.title }}
                 </h2>
                 <p class="mb10 detail">
-                  {{ item.summary}}
+                  {{ item.summary }}
                 </p>
                 <p class="otherInfo">
-                  <span class="mr5">2月前</span>
-                  <span class="mr5">浏览 465</span>
+                  <span class="mr5">{{ fromNow(item.timeDate) }} </span>
+                  <span class="mr5">浏览 {{ item.views }}</span>
                 </p>
-              </div>
+              </span>
               <div class="latest-content-r">
                 <img
                   src="https://www.duoguyu.com/uploads/201908/28/190828052102855.png"
@@ -90,7 +95,14 @@
             热门标签
           </h2>
           <div class="home-tags-box">
-            <nuxt-link to="" class="home-tags-item" v-for="item in articlesTag" :key="item.id"> {{ item.tagName }} </nuxt-link>
+            <nuxt-link
+              v-for="item in articlesTag"
+              :key="item.id"
+              to=""
+              class="home-tags-item"
+            >
+              {{ item.tagName }}
+            </nuxt-link>
             <a
               class="home-tags-item"
               href=""
@@ -112,6 +124,8 @@
 
 <script>
 import Tag from '@/components/Tag'
+import utils from '@/utils/utils'
+
 export default {
   name: 'Home',
   components: {
@@ -140,6 +154,9 @@ export default {
      } catch {
        return error({ statusCode: 404, message: 'Post not found' })
      }
+  },
+  methods: {
+    fromNow: utils.fromNow
   }
 }
 </script>
