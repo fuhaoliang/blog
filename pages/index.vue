@@ -50,9 +50,12 @@
                   <span class="mr5">浏览 {{ item.views }}</span>
                 </p>
               </span>
-              <div class="latest-content-r">
+              <div
+                v-if="item.coverUrl"
+                class="latest-content-r"
+              >
                 <img
-                  src="https://www.duoguyu.com/uploads/201908/28/190828052102855.png"
+                  :src="item.coverUrl"
                   alt=""
                 >
               </div>
@@ -230,12 +233,14 @@ export default {
         }
         .latest-content-r {
           width: 140px;
-          height: 100px;
+          height: 105px;
           flex-basis: 140px;
           border-radius: 4px;
           overflow: hidden;
           img {
-            width: 100%;
+            width: 140px;
+            height: 105px;
+            object-fit: contain;
           }
         }
       }
