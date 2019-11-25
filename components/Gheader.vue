@@ -21,8 +21,8 @@
         <router-link to="/">
           首页
         </router-link>
-        <router-link to="/">
-          博客
+        <router-link to="/jour">
+          札记
         </router-link>
         <router-link to="/">
           一席话

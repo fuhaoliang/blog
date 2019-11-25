@@ -3,19 +3,47 @@
     <!-- banner楼层 -->
     <div class="mb40 banner">
       <div class="leftWrap banner-l">
-        <a-carousel autoplay>
-          <div><h3>1</h3></div>
-          <div><h3>2</h3></div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
+        <a-carousel
+          autoplay
+          arrows
+        >
+          <div
+            slot="prevArrow"
+            class="custom-slick-arrow"
+            style="left: 10px;zIndex: 1"
+          >
+            <a-icon type="left-circle" />
+          </div>
+          <div
+            slot="nextArrow"
+            class="custom-slick-arrow"
+            style="right: 10px"
+          >
+            <a-icon type="right-circle" />
+          </div>
+          <div
+            v-for="(item, index) in swiperArr"
+            :key="index"
+          >
+            <img
+              :src="item"
+              alt=""
+            >
+          </div>
         </a-carousel>
       </div>
       <div class="rightWrap banner-r">
         <div class="mb10 br5 banner-r-t">
-          2
+          <img
+            src="~/assets/img/banner_t.jpg"
+            alt=""
+          >
         </div>
         <div class="br5 banner-r-b">
-          3
+          <img
+            src="~/assets/img/banner_b.png"
+            alt=""
+          >
         </div>
       </div>
     </div>
@@ -32,9 +60,10 @@
             :key="item.id"
             :to="`/detail/${item.id}`"
             class="latest-item"
+            tag="div"
           >
             <Tag
-              title="小程序"
+              :title="item.tagArr | lastArrValue"
               class="mb5"
             />
             <div class="latest-content">
@@ -134,10 +163,23 @@ export default {
   components: {
     Tag
   },
+  filters: {
+    lastArrValue (arr) {
+      if (Array.isArray(arr)) {
+        return arr[arr.length - 1]
+      } else {
+        return ''
+      }
+    }
+  },
    data () {
     return {
       articlesList: [],
-      articlesTag:[]
+      articlesTag:[],
+      swiperArr: [
+        require('@/assets/img/swiper1.jpg'),
+        require('@/assets/img/swiper2.jpg'),
+      ]
     }
   },
   async asyncData({ app, error }) {
@@ -177,10 +219,18 @@ export default {
       .banner-r-t {
         height: 210px;
         background: #364d79;
+        border-radius: 5px;
+        overflow: hidden;
       }
       .banner-r-b {
         height: 100px;
         background: #364d79;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      img{
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -297,7 +347,18 @@ export default {
   border-radius: 5px;
 }
 
-.ant-carousel >>> .slick-slide h3 {
-  color: #fff;
-}
+  .ant-carousel >>> .custom-slick-arrow {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    color: #fff;
+    background-color: rgba(31, 45, 61, 0.11);
+    opacity: 0.3;
+  }
+  .ant-carousel >>> .custom-slick-arrow:before {
+    display: none;
+  }
+  .ant-carousel >>> .custom-slick-arrow:hover {
+    opacity: 0.5;
+  }
 </style>
