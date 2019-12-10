@@ -49,7 +49,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '@nuxtjs/proxy'
   ],
@@ -112,10 +112,10 @@ module.exports = {
     // base: '/blog/'
   },
   proxy: {
-    '/dev/api/v1': {
-      target: 'http://example.com',
+    '/dev': {
+      target: 'http://127.0.0.1:3000',
       pathRewrite: {
-        '^/api' : '/'
+        '^/dev' : ''
       }
     }
   }

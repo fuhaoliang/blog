@@ -1,28 +1,28 @@
 <template>
   <div class="latest-item">
     <Tag
-      :title="item.tagArr | lastArrValue"
+      :title="articleObj.tagArr | lastArrValue"
       class="mb5"
     />
     <div class="latest-content">
       <span class="latest-content-l">
         <h2 class="mb5 title">
-          {{ item.title }}
+          {{ articleObj.title }}
         </h2>
         <p class="mb10 detail">
-          {{ item.summary }}
+          {{ articleObj.summary }}
         </p>
         <p class="otherInfo">
-          <span class="mr5">{{ fromNow(item.timeDate) }} </span>
-          <span class="mr5">浏览 {{ item.views }}</span>
+          <span class="mr5">{{ fromNow(articleObj.timeDate) }} </span>
+          <span class="mr5">浏览 {{ articleObj.views }}</span>
         </p>
       </span>
       <div
-        v-if="item.coverUrl"
+        v-if="articleObj.coverUrl"
         class="latest-content-r"
       >
         <img
-          :src="item.coverUrl"
+          :src="articleObj.coverUrl"
           alt=""
         >
       </div>
@@ -35,7 +35,19 @@ import Tag from '@/components/Tag'
 import { fromNow } from '@/utils/utils'
 export default {
   name: 'AtricleItem',
-  porps: {
+  filters: {
+    lastArrValue (arr) {
+      if (Array.isArray(arr)) {
+        return arr[arr.length - 1]
+      } else {
+        return ''
+      }
+    }
+  },
+  components: {
+    Tag
+  },
+  props: {
     articleObj: {
       type: Object,
       default: () => ({
@@ -48,17 +60,17 @@ export default {
       })
     }
   },
-  filters: {
-    lastArrValue (arr) {
-      if (Array.isArray(arr)) {
-        return arr[arr.length - 1]
-      } else {
-        return ''
-      }
+  data (){
+    return {
+      // articleobj: {
+      //   title: '',
+      //   tagArr: [],
+      //   summary: '',
+      //   coverUrl: '',
+      //   views: 0,
+      //   timeDate: 0,
+      // }
     }
-  },
-  components: {
-    Tag
   },
   methods: {
     fromNow

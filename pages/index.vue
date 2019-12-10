@@ -59,36 +59,11 @@
             v-for="item in articlesList"
             :key="item.id"
             :to="`/detail/${item.id}`"
-            class="latest-item"
-            tag="div"
           >
-            <Tag
-              :title="item.tagArr | lastArrValue"
-              class="mb5"
+            <article-item
+              v-if="articlesList.length > 0"
+              :articleObj="item"
             />
-            <div class="latest-content">
-              <span class="latest-content-l">
-                <h2 class="mb5 title">
-                  {{ item.title }}
-                </h2>
-                <p class="mb10 detail">
-                  {{ item.summary }}
-                </p>
-                <p class="otherInfo">
-                  <span class="mr5">{{ fromNow(item.timeDate) }} </span>
-                  <span class="mr5">浏览 {{ item.views }}</span>
-                </p>
-              </span>
-              <div
-                v-if="item.coverUrl"
-                class="latest-content-r"
-              >
-                <img
-                  :src="item.coverUrl"
-                  alt=""
-                >
-              </div>
-            </div>
           </nuxt-link>
           <div class="latest-item">
             <Tag
@@ -155,7 +130,7 @@
 </template>
 
 <script>
-// import ArticleItem from '@/components/ArticleItem'
+import ArticleItem from '@/components/ArticleItem'
 import Tag from '@/components/Tag'
 import utils from '@/utils/utils'
 
@@ -163,7 +138,7 @@ export default {
   name: 'Home',
   components: {
     Tag,
-    // ArticleItem
+    ArticleItem
   },
   filters: {
     lastArrValue (arr) {
@@ -174,7 +149,7 @@ export default {
       }
     }
   },
-   data () {
+  data () {
     return {
       articlesList: [],
       articlesTag:[],
