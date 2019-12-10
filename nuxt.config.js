@@ -50,7 +50,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/proxy'
   ],
   styleResources: {
     less: './assets/css/var.less'
@@ -59,7 +60,9 @@ module.exports = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true
+  },
   /*
    ** Build configuration
    */
@@ -107,5 +110,13 @@ module.exports = {
   },
   router: {
     // base: '/blog/'
+  },
+  proxy: {
+    '/dev/api/v1': {
+      target: 'http://example.com',
+      pathRewrite: {
+        '^/api' : '/'
+      }
+    }
   }
 }

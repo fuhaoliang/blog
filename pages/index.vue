@@ -155,13 +155,15 @@
 </template>
 
 <script>
+// import ArticleItem from '@/components/ArticleItem'
 import Tag from '@/components/Tag'
 import utils from '@/utils/utils'
 
 export default {
   name: 'Home',
   components: {
-    Tag
+    Tag,
+    // ArticleItem
   },
   filters: {
     lastArrValue (arr) {
