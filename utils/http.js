@@ -3,12 +3,9 @@ import { message } from 'ant-design-vue'
 import store from 'vuex'
 import services from './services'
 import utils from './utils'
-import { state, mutations } from '@/store'
 import { getToken } from '@/utils/auth'
 
 // const store = {}
-console.info('store---->', store.state)
-console.info('state--->', state(), mutations.increment(state))
 
 const Message = message
 

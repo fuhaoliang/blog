@@ -185,7 +185,6 @@ export default {
 
 <style lang="less">
 .home {
-  width: 100%;
   .banner {
     clear: both;
     overflow: hidden;

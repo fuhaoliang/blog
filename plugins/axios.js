@@ -102,7 +102,6 @@ export default function({ isClient, app, $axios, store }) {
           options.proxy
             ? ''
             : serviceHost
-        console.info('host----->', host)
         let response = {}
 
         if (
@@ -122,8 +121,6 @@ export default function({ isClient, app, $axios, store }) {
           }
         }
         store.commit('increment')
-        console.info('response', response)
-        console.info('response.response', response.response)
         if (response.response) {
           errorObj.status.code = response.response.status
           errorObj.status.message =

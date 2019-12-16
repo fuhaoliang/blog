@@ -66,7 +66,7 @@ export default {
      let {status, data}  = await app.$http.articleApi.getAtricleInfo({ id }, {error : false})
      const { message } = status
      if (status.code === 0) {
-       console.info('data',data )
+       console.info('data', data )
      } else {
        error({ statusCode: 404, message })
      }
@@ -78,7 +78,6 @@ export default {
   },
   mounted() {
     Prism.highlightAll()
-    console.info('xss(articleObj.content)', this.xss, '--->', this.xss(this.articleObj.content) )
   },
   methods: {
     xss,

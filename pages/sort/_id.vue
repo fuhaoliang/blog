@@ -10,11 +10,9 @@
   <div class="layout jour">
     <div class="leftWrap">
       <div class="article-tab">
-        <nuxt-link :to="{name: 'sort-id', params: { id: 1 }}">
-          <span class="item checked">
-            全部
-          </span>
-        </nuxt-link>
+        <span class="item checked">
+          全部
+        </span>
         <span class="item">杂的文</span>
         <span class="item">小程序</span>
         <span class="item">CMS</span>
@@ -29,27 +27,37 @@
 </template>
 <script>
 export default {
-  name: 'Jour',
+  name: 'Sort',
   data () {
-    return {
-      list: [
-        {
-          id: 0,
-          title: '全部',
-        },
-        {
-          id: 1,
-          title: '杂的文',
-        }
-      ]
-    }
   },
 }
 </script>
 
 <style lang="less">
 .jour{
-  
+  .article-tab{
+    display: flex;
+    align-items: flex-end;
+    &::before{
+      content: "#";
+      color: #999;
+      font-size: 20px;
+      font-weight: lighter;
+      height: 24px;
+      line-height: 24px;
+      width: 15px;
+    }
+    .item{
+      margin-right: 20px;
+      font-size: 14px;
+      color: #666;
+      line-height: 24px;
+      &.checked{
+        font-size: 20px;
+        color: #409eff;
+      }
+    }
+  }
 }
   
 </style>
