@@ -32,7 +32,7 @@
 
 <script>
 import Tag from '@/components/Tag'
-import { fromNow } from '@/utils/utils'
+import utils from '@/utils/utils'
 export default {
   name: 'AtricleItem',
   filters: {
@@ -73,7 +73,7 @@ export default {
     }
   },
   methods: {
-    fromNow
+    fromNow: utils.fromNow
   }
 }
 </script>

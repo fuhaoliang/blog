@@ -24,7 +24,7 @@
         <router-link to="/jour">
           札记
         </router-link>
-        <router-link to="/">
+        <!-- <router-link to="/">
           一席话
         </router-link>
         <router-link to="/">
@@ -35,7 +35,7 @@
         </router-link>
         <router-link to="/">
           社区
-        </router-link>
+        </router-link> -->
       </div>
       <div class="gheader-m-r">
         <a-input-search
@@ -91,6 +91,9 @@ export default {}
   margin: 0 auto;
   border-bottom: 1px solid #eee;
   border-top: 1px solid #eee;
+   .nuxt-link-exact-active{
+      color: #1890ff;
+    }
   .gheader-m-l {
     a {
       font-weight: bold;

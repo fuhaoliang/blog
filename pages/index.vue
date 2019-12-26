@@ -105,7 +105,7 @@
             <nuxt-link
               v-for="item in articlesTag"
               :key="item.id"
-              to=""
+              :to="{ name: 'jour-id', params: { id: item.id }}"
               class="home-tags-item"
             >
               {{ item.tagName }}

@@ -1,12 +1,23 @@
 <template>
   <div class="article-tab">
+    <nuxt-link :to="{name: 'jour-id'}">
+      <span
+        class="item"
+        :class="{ checked: checkedId === ''}"
+      >
+        全部
+      </span>
+    </nuxt-link>
     <nuxt-link
       v-for="item in tabList"
       :key="item.id"
-      :to="{name: 'sort-id', params: { id: item.id }}"
+      :to="{name: 'jour-id', params: { id: item.id }}"
     >
-      <span class="item checked">
-        {{ item.title }}
+      <span
+        class="item"
+        :class="{ checked: checkedId === item.id }"
+      >
+        {{ item.tagName }}
       </span>
     </nuxt-link>
   </div>
@@ -22,15 +33,25 @@ export default {
     },
     tabList: {
       type: Array,
-      default: () => []
+      default: () => ([
+        {
+          "id": "6c221fa0-0782-11ea-b89e-91cddb96695f",
+          "createDate": 1573806732954,
+          "tagName": "小程序"
+        }
+      ])
     }
   },
-  computed: {
-    id: {
-      handle: function(){
-        
-      },
-      immediate: true
+  data () {
+    return {
+
+    }
+  },
+  watch: {
+    '$route.params':{
+      handler(paramObj) {
+        console.info('paramObj--->', paramObj)
+      }
     }
   }
 }

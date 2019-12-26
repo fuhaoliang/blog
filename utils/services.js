@@ -49,6 +49,10 @@ const articleApi = {
   getArticlesCount: {
     method: 'get',
     url: '/articles/count'
+  },
+  getArticlesByTagId: {
+    method: 'get',
+    url: '/articles/{tagId}'
   }
 }
 
