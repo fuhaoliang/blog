@@ -138,7 +138,7 @@ export default function({ isClient, app, $axios, store }) {
           response = response.response
         }
         if (response.status === 200 || response.status === 201) {
-          console.info('sucess---http')
+          // console.info('sucess---http')
         } else {
           response.data = errorObj
           if (options.error) {
@@ -154,7 +154,7 @@ export default function({ isClient, app, $axios, store }) {
         if (options.show) {
           store.dispatch('ToggleLoadingShow', false)
         }
-        console.info('response', response)
+        // console.info('response', response)
         return response
       }
     }

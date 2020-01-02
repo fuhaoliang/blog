@@ -1,13 +1,13 @@
 <template>
   <div class="detail-title">
     <div class="title">
-      <h1>{{ title }}<span> / 小程序</span></h1>
+      <h1>{{ title }}<span> / {{ tagName }}</span></h1>
     </div>
     <div class="info">
-      <span>2月前</span>
-      <span>阅读量 / 237</span>
+      <span>{{ $fromNow | timeDate }}</span>
+      <span>阅读量 / {{ views }}</span>
       <span>来源 / 原创</span>
-      <span>文 / 倔强的巴顿</span>
+      <span>文 / 付豪亮</span>
     </div>
   </div>
 </template>
@@ -18,7 +18,19 @@ export default {
   props: {
     title: {
       type: String,
-      default: '111'
+      default: ''
+    },
+    tagName: {
+      type: String,
+      default: ''
+    },
+    timeDate: {
+      type: Number,
+      default: 0
+    },
+    views: {
+      type: Number,
+      default: 0
     }
   }
 }

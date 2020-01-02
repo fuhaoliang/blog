@@ -2,40 +2,33 @@
   <div class="layout gheader">
     <div class="gheader-t">
       <div class="gheader-t-l">
-        <router-link to="/">
+        <nuxt-link to="/">
           <img
             class="logo"
             src="https://www.duoguyu.com/uploads/201904/23/190423113846842.png"
             alt=""
           >
-        </router-link>
+        </nuxt-link>
       </div>
       <div class="gheader-t-r">
-        <router-link to="/">
+        <nuxt-link to="/">
           登录/注册
-        </router-link>
+        </nuxt-link>
       </div>
     </div>
     <div class="gheader-m">
       <div class="gheader-m-l">
-        <router-link to="/">
+        <nuxt-link
+          to="/"
+          exact
+        >
           首页
-        </router-link>
-        <router-link to="/jour">
+        </nuxt-link>
+        <nuxt-link
+          to="/jour/"
+        >
           札记
-        </router-link>
-        <!-- <router-link to="/">
-          一席话
-        </router-link>
-        <router-link to="/">
-          资源
-        </router-link>
-        <router-link to="/">
-          关于我
-        </router-link>
-        <router-link to="/">
-          社区
-        </router-link> -->
+        </nuxt-link>
       </div>
       <div class="gheader-m-r">
         <a-input-search
@@ -91,15 +84,16 @@ export default {}
   margin: 0 auto;
   border-bottom: 1px solid #eee;
   border-top: 1px solid #eee;
-   .nuxt-link-exact-active{
-      color: #1890ff;
-    }
+   
   .gheader-m-l {
     a {
       font-weight: bold;
     }
     a + a {
       margin-left: 35px;
+    }
+    a.nuxt-link-active{
+      color: #1890ff;
     }
   }
 }

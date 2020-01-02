@@ -49,8 +49,8 @@ export default {
   },
   watch: {
     '$route.params':{
-      handler(paramObj) {
-        console.info('paramObj--->', paramObj)
+      handler() {
+        // console.info('paramObj--->', paramObj)
       }
     }
   }

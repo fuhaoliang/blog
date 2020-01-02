@@ -96,7 +96,7 @@ for (const i in services) {
       }
 
       if (headers.permission) {
-        console.info('权限判断')
+        // console.info('权限判断')
       } else {
         config.headers = headers
       }
@@ -112,7 +112,6 @@ for (const i in services) {
         options.proxy
           ? ''
           : serviceHost
-      console.info('host----->', host)
       let response = {}
 
       if (
@@ -131,8 +130,6 @@ for (const i in services) {
           message: 'Error: Network Error'
         }
       }
-      console.info('response', response)
-      console.info('response.response', response.response)
       if (response.response) {
         errorObj.status.code = response.response.status
         errorObj.status.message =
@@ -150,7 +147,7 @@ for (const i in services) {
         response = response.response
       }
       if (response.status === 200 || response.status === 201) {
-        console.info('sucess---http')
+        // console.info('sucess---http')
       } else {
         response.data = errorObj
         if (options.error) {
@@ -166,7 +163,7 @@ for (const i in services) {
       if (options.show) {
         store.dispatch('ToggleLoadingShow', false)
       }
-      console.info('response', response)
+      // console.info('response', response)
       return response
     }
   }

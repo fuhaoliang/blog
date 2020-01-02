@@ -9,7 +9,12 @@
 <template>
   <div class="layout detail-body">
     <div class="leftWrap">
-      <detail-title :title="articleObj.title " />
+      <detail-title
+        :title="articleObj.title"
+        :tagName="articleObj.tagArr[0]"
+        :timeDate="articleObj.timeDate"
+        :views="articleObj.views"
+      />
       <div class="pr mb60 description">
         <p>
           {{ counter }}
@@ -18,6 +23,7 @@
         <i class="flag" />
       </div>
       <div class="article">
+        <div v-html="$options.filters.$xss(articleObj.content)" />
         <div v-html="articleObj.content" />
       </div>
     </div>
@@ -29,7 +35,6 @@
 import DetailTitle from '@/components/DeatilTitle'
 import Prism from 'prismjs'
 
-import xss from 'xss'
 export default {
   name: 'Detail',
   components: {
@@ -66,7 +71,7 @@ export default {
      let {status, data}  = await app.$http.articleApi.getAtricleInfo({ id }, {error : false})
      const { message } = status
      if (status.code === 0) {
-       console.info('data', data )
+      //  console.info('data', data )
      } else {
        error({ statusCode: 404, message })
      }
@@ -80,7 +85,6 @@ export default {
     Prism.highlightAll()
   },
   methods: {
-    xss,
     test() {
       this.$http.articleApi.getArticles()
     }

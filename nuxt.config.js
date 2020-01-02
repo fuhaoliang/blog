@@ -35,6 +35,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/antd.js', ssr: true },
     { src: '~/plugins/axios.js', ssr: true },
+    { src: '~/plugins/filters.js', ssr: true },
     { src: '~/plugins/sa.js', mode: 'client' }
   ],
   /*
