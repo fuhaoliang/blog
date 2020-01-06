@@ -24,6 +24,7 @@ module.exports = {
   /*
    ** Global CSS
    */
+  cache: true,
   css: [
     '~/assets/css/common.less',
     'ant-design-vue/dist/antd.css',
